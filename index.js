@@ -11,6 +11,6 @@ const PORT = process.env.PORT || 4300
 
 // const HOST = '192.168.29.153';
 
-app.listen(PORT ,HOST, () => {
+app.listen(PORT , () => {
     console.log(`Server running on port : ${PORT}`);
 })
