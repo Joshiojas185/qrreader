@@ -499,4 +499,5 @@ const  clearLocalStorage = document.getElementById('localStorageBtn');
 clearLocalStorage.addEventListener("click", () => {
   localStorage.clear();
   alert('Localstorage cleared successfully');
+  window.location.reload();
 })
