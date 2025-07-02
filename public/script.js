@@ -493,3 +493,10 @@ function showConfetti() {
 window.addEventListener('beforeunload', () => {
   stopCamera();
 });
+
+
+const  clearLocalStorage = document.getElementById('localStorageBtn');
+clearLocalStorage.addEventListener("click", () => {
+  localStorage.clear();
+  alert('Localstorage cleared successfully');
+})
