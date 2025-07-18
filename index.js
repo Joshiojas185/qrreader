@@ -5,7 +5,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static("frontend"));
+app.use(express.static("myfrontend"));
 
 const PORT = process.env.PORT || 4300
 

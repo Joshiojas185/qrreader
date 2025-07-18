@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>React Rajasthan - Event QR Scanner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- jsQR Library -->
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-section">
+        <img src="https://reactrajasthan.com/assets/react-CzdzNu9N.png" alt="React Rajasthan" class="logo-image" />
+        <div class="logo-text">
+          <h1>React Rajasthan</h1>
+          <span>Event QR Scanner</span>
+        </div>
+      </div>
+      <div class="status-badge">
+        <div class="status-dot" id="statusDot"></div>
+        <span id="statusText">Loading...</span>
+      </div>
+    </header>
+
+    <!-- Main Scanner Section -->
+    <main class="scanner-section">
+      <div class="scanner-card">
+        <div class="video-container">
+          <video id="video" playsinline autoplay></video>
+          <canvas id="canvas"></canvas>
+          
+          <!-- Scanner Overlay -->
+          <div class="scanner-overlay">
+            <div class="scan-target">
+              <div class="corner corner-tl"></div>
+              <div class="corner corner-tr"></div>
+              <div class="corner corner-bl"></div>
+              <div class="corner corner-br"></div>
+            </div>
+            <!-- Full frame scan line -->
+            <div class="scan-line"></div>
+            <div class="scan-hint">
+              <i class="fas fa-qrcode"></i>
+              <span>Align QR code within the frame</span>
+            </div>
+          </div>
+          
+          <!-- Message Overlay -->
+          <div class="message-overlay" id="messageOverlay">
+            <div class="message-card">
+              <div class="message-icon" id="messageIcon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <h3 id="messageTitle">Welcome!</h3>
+              <p id="messageText">Successfully verified!</p>
+            </div>
+          </div>
+          
+          <!-- Success Animation -->
+          <div class="success-animation" id="successAnimation">
+            <div class="success-ring">
+              <i class="fas fa-check"></i>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Camera Controls -->
+        <div class="camera-controls">
+          <button class="control-button" id="switchCamera" title="Switch Camera">
+            <i class="fas fa-camera-rotate"></i>
+            <span>Switch Camera</span>
+          </button>
+          <button class="control-button" id="flashlight" title="Toggle Flash">
+            <i class="fas fa-lightbulb"></i>
+            <span>Flash</span>
+          </button>
+          <button class="control-button" id="refreshData" title="Refresh Data">
+            <i class="fas fa-sync-alt"></i>
+            <span>Refresh</span>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="stats-card">
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-number" id="totalScanned">0</span>
+            <span class="stat-label">Attendees Checked In</span>
+          </div>
+        </div>
+        <div class="stat-item" style="margin-top: 12px;">
+          <div class="stat-icon" style="background: #f59e0b;">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-number" id="pendingSync">0</span>
+            <span class="stat-label">Pending Sync</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confetti"></canvas>
+  <input type="button" id="localStorageBtn" value="Clear LocalStorage" style="position: fixed; bottom: 10px; right: 10px; z-index: 1000; padding: 8px 12px; background: #f94eb2; color: white; border: none; border-radius: 8px; font-size: 12px; cursor: pointer;"/>
+
+  <script src="script.js"></script>
+</body>
+</html>
