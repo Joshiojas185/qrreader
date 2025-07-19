@@ -421,7 +421,7 @@ function updateStats() {
   const scannedIds = getScannedIds();
   const pendingSync = getPendingSync();
   
-         pendingSyncEl.textContent = scannedIds.length;
+  totalScannedEl.textContent = scannedIds.length;
   pendingSyncEl.textContent = pendingSync.length;
 }
 
